@@ -1,0 +1,24 @@
+Justification for SciPy 2013
+============================
+
+The SciPy meeting is the main public forum for the scientific Python
+community. In the last decade Python has become the preeminent
+language for driving and managing scientific workflow with nearly
+every major scientific group using Python to drive all aspects of
+scientific management including development, workflow, and data
+management. The benefits of the SciPy meeting can be justified by our
+past attendance which has dramatically influenced our direction when
+developing tools such as FiPy and enabling us to place Python workflow
+and data management tools at the heart of the MGI initiative.
+
+Daniel Wheeler will be presenting a talk entitled, "Using Sumatra to
+automate the management of simulations". My goal is to disseminate the
+idea of automated, simulation-centered workflow using the Python-based
+Sumatra (*) tool. I will present this in the context of the MGI
+initiate and discuss data-centered versus simulation-centered workflow
+management. The talk will likely result in feedback from an audience
+that will include many of the leaders in reproducible science and
+workflow management as well as many developers of workflow tools.
+
+ (*) http://pythonhosted.org/Sumatra/ and http://neuralensemble.org/trac/sumatra
+

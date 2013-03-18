@@ -1,0 +1,17 @@
+Using Sumatra to Automate the Management of Simulations
+=======================================================
+
+Andrew Davidson and Daniel Wheeler
+----------------------------------
+
+Sumatra is a lightweight system for logging the provenance data for
+numerical simulations. It works particularly well for scientist that
+both develop with versioning systems whilst also executing multiple
+simulations. This is a common work pattern and often results in a mode
+of work that mixes branching for both code development and simulation
+management. Sumatra overcomes this issue by providing a light weight
+system for recorrding the provenance data independently from the
+versioing system used for the code development. The lightweigth design
+of Sumatra enables it to fit well with an exising ad-hoc pattern of
+simulation management. It also uses a straightforward Django-based
+data model enabling data queries even without a Sumatra installation.
