@@ -1,80 +1,49 @@
-Using Sumatra to Automate the Management of Simulations
-=======================================================
+Using Sumatra (*) to Automate the Management of Simulations
+===========================================================
 
-Andrew Davidson and Daniel Wheeler
-----------------------------------
+Andrew Davidson (original developer) and Daniel Wheeler (speaker)
+-----------------------------------------------------------------
 
-Sumatra is a lightweight system for logging the provenance data for
-numerical simulations. It works particularly well for scientist that
-both develop with versioning systems whilst also executing multiple
-simulations. This is a common work pattern and often results in a mode
-of work that mixes branching for both code development and simulation
-management. Sumatra overcomes this issue by providing a light weight
-system for recorrding the provenance data independently from the
-versioing system used for the code development. The lightweigth design
-of Sumatra enables it to fit well with an exising ad-hoc pattern of
-simulation management. It also uses a straightforward Django-based
-data model enabling data queries even without a Sumatra installation.
+Sumatra is a lightweight system for recording the history and
+provenance data for numerical simulations. It works particularly well
+for scientists that are in the intermediate stage between developing a
+code base and using the code base for active research. This is a
+common scenario and often results in a mode of development that mixes
+branching for both code development and production simulations.  Using
+Sumatra avoids this unintended use of the versioning system by
+providing a lightweight design for recording the provenance data
+independently from the versioning system used for the code
+development. The lightweight design of Sumatra fits well with existing
+ad-hoc patterns of simulation management contrasting with more
+pervasive workflow tools, which can require a wholesale alteration of
+work patterns. Sumatra uses a straightforward Django-based data model
+enabling persistent data storage independently from the Sumatra
+installation.
+..
 
+Sumatra is both a command line utilty and a rudimentary web interface
+that has the potential to be really cool. More stuff about Sumatra...
 
+..
+The speaker will demonstrate a number of typical usage
+patterns for Sumatra and discuss achievable future goals.
 
-A tool such as Sumatra is an essential prerequiste for a graph-based,
-data-centric workflow tool.
+ (*) http://neuralensemble.org/sumatra/
 
+Daniel Wheeler profile
+----------------------
 
-Daniel Wheeler will be presenting a talk entitled, "Using Sumatra to
-automate the management of simulations". My goal is to disseminate the
-idea of automated, simulation-centered workflow using the Python-based
-Sumatra (*) tool. I will present this in the context of the MGI
-initiate and discuss data-centered versus simulation-centered workflow
-management. The talk will likely result in feedback from an audience
-that will include many of the leaders in reproducible science and
-workflow management as well as many developers of workflow tools.
+Daniel Wheeler's expertise lies in the development and deployment of
+software for applied scientific applications. He has a strong
+knowledge of numerical algorithms for solving partial differential
+equations as well as good skills in using and developing more general
+scientific computing tools. He has an extensive background (8 years)
+working with python, python/C interfaces and general numerical tool
+kits in high performance computing environments. He is the lead
+developer of the FiPy open-source PDE solver. He has over 40 refereed
+journal publications and an h-index of 19.
 
-How does constant small changes fit into a view of 
+Andrew Davidson profile
+-----------------------
 
-Challanges
-
- * many small changes
-
- * record as much provenece datat as possible.
-
- * resource-oriented
-
-More often scientific dataflows are data-centric in the sense that
-.... However, it is also often the case that the management is
-case-centered such as for insurance claims, where millions of similar
-tasks need to be executed and human interaction is required to choose
-the next simulation to be run. Recording of this tasks does not fit
-neatly into either a data-centric scientific workflow tool nor a
-version control system. One possible way to record simulations is to
-use a separate branch for each simulation, changing only a few
-parameters for each simulation.
-
-Models of computation
-
- - M: W x P x X -> Y
-
-  * PN - process network
-
-  * SDF - synchronous data flow
-
-  * PN and SDF
-
-  * DAG - directed acyclic graph
-
-  * extending PN is COMAD -- collection-oriented modeling and design, 
-
-simulation managment workflow
-
-  resource oriented -- production workflow
-
-  plumbing workflows
-
-  /  
-
-
- http://www.academia.edu/300530/Scientific_Process_Automation_and_Workflow_Management
-
-Easily adapted into alread yexisiting workflows without having to
-change the way one works.
+Andrew Davidson is the originator and lead developer of the Sumatra project.
