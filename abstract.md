@@ -1,13 +1,11 @@
-Using Sumatra (*) to Automate the Management of Simulations
-===========================================================
+# Using Sumatra to Manage Numerical Simulations
 
 Andrew Davidson (original developer) and Daniel Wheeler (speaker)
------------------------------------------------------------------
 
-Sumatra is a lightweight system for recording the history and
+[Sumatra][1] is a lightweight system for recording the history and
 provenance data for numerical simulations. It works particularly well
 for scientists that are in the intermediate stage between developing a
-code base and using the code base for active research. This is a
+code base and using that code base for active research. This is a
 common scenario and often results in a mode of development that mixes
 branching for both code development and production simulations.  Using
 Sumatra avoids this unintended use of the versioning system by
@@ -18,20 +16,15 @@ ad-hoc patterns of simulation management contrasting with more
 pervasive workflow tools, which can require a wholesale alteration of
 work patterns. Sumatra uses a straightforward Django-based data model
 enabling persistent data storage independently from the Sumatra
-installation.
-..
+installation. Sumatra is a command line utility with a rudimentary web
+interface, but has the potential to become a full web-based simulation
+management solution. During the talk, the speaker will provide an
+introduction to Sumatra as well as demonstrate some typical usage
+patterns and discuss achievable future goals.
 
-Sumatra is both a command line utilty and a rudimentary web interface
-that has the potential to be really cool. More stuff about Sumatra...
+[1]: http://neuralensemble.org/sumatra/
 
-..
-The speaker will demonstrate a number of typical usage
-patterns for Sumatra and discuss achievable future goals.
-
- (*) http://neuralensemble.org/sumatra/
-
-Daniel Wheeler profile
-----------------------
+## Daniel Wheeler profile
 
 Daniel Wheeler's expertise lies in the development and deployment of
 software for applied scientific applications. He has a strong
@@ -39,11 +32,7 @@ knowledge of numerical algorithms for solving partial differential
 equations as well as good skills in using and developing more general
 scientific computing tools. He has an extensive background (8 years)
 working with python, python/C interfaces and general numerical tool
-kits in high performance computing environments. He is the lead
-developer of the FiPy open-source PDE solver. He has over 40 refereed
+kits in high performance computing environments. He is one of the lead
+developers of the FiPy open-source PDE solver. He has over 40 refereed
 journal publications and an h-index of 19.
 
-Andrew Davidson profile
------------------------
-
-Andrew Davidson is the originator and lead developer of the Sumatra project.
