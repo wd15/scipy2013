@@ -1,4 +1,3 @@
-scipy2013
-=========
+# Scipy 2013
 
-Repository for Scipy 2013 talk
+Repository for Scipy 2013 talk.
