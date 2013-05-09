@@ -9,9 +9,15 @@
 <!-- pandoc --highlight-style pygments -s --mathml -i -t dzslides presentation.md -o presentation.html -->
 <!-- pandoc --highlight-style espresso -s --mathml -i -t dzslides presentation.md -o presentation.html -->
 
-<p style="text-align: center;"> <i> <br><br>"Automate away ability to make dumb
-mistakes. Don't use human based process and documentation."</i>,<br><br>
+<p style="text-align: center;"> <i>"Automate away ability to make dumb
+mistakes. Don't use human based process and documentation."</i>,<br>
 Tim Clem, Github bigwig, SciPy 2012 </p>
+
+<p style="text-align: center;"><iframe width="560" height="410" src="http://www.youtube.com/embed/R75krhS51d0?rel=0" frameborder="0"> </iframe></p>
+
+<!-- ffmpeg -acodec copy -vcodec copy -ss START -t LENGTH -i ORIGINALFILE.mp4 OUTFILE.mp4 -->
+<!-- START 00:27:43 -->
+<!-- LENGTH 00:01:00 -->
 
 ## Example
 
@@ -170,8 +176,8 @@ User             : Daniel Wheeler <daniel.w...
 
 ## Sumatra Web Interface
 
-<!-- on ruth do "smtweb --allips --no-browser" --!>
-<p style="text-align: center;"><iframe width="100%" height="360" src="http://129.6.153.93:8000/sumatrademo/622fbd437c4a/" frameborder="0" border="0"> </iframe></p>
+<!-- on ruth do "smtweb --allips --no-browser" -->
+<!-- <p style="text-align: center;"><iframe width="100%" height="360" src="http://129.6.153.93:8000/sumatrademo/622fbd437c4a/" frameborder="0" border="0"> </iframe></p> -->
 
 ## Modify Code
 
@@ -192,16 +198,16 @@ time.sleep(wait)
 
 ## Record Dependencies
 
-<p style="text-align: center;"><iframe width="100%" height="360" src="http://129.6.153.93:8000/sumatrademo/6b53762ca24e/" frameborder="0" border="0"> </iframe></p>
+<!-- <p style="text-align: center;"><iframe width="100%" height="360" src="http://129.6.153.93:8000/sumatrademo/6b53762ca24e/" frameborder="0" border="0"> </iframe></p> -->
 
 ## Sumatra Web Interface
 
-<!-- on ruth do "smtweb --allips --no-browser" --!>
-<p style="text-align: center;"> <http://129.6.153.93:8000/sumatrademo/> </p>
+<!-- on ruth do "smtweb --allips --no-browser" -->
+<!-- <p style="text-align: center;"> <http://129.6.153.93:8000/sumatrademo/> </p> -->
 
 ## Sumatra Overview
 
-<p style="text-align: center;"><iframe width="100%" height="360" src="https://www.ohloh.net/p/Sumatra" frameborder="0" border="0"> </iframe></p>
+<!-- <p style="text-align: center;"><iframe width="100%" height="360" src="https://www.ohloh.net/p/Sumatra" frameborder="0" border="0"> </iframe></p> -->
 
 ## Andrew Davison
 
@@ -215,20 +221,54 @@ time.sleep(wait)
 <!-- Promotes reproducible research in neuroscience <br> -->
 <!-- PyNN, NineML and NeuroML, Sumatra, Neo and Helmholtz project. -->
 
-## What is Sumatra good for what is it not good for?
+## Why do I like Sumatra?
 
-Doesn't mess with workflow for me
+<p style="text-align: center; "> <font color="red"> Doesn't require a
+wholesale change to the way I work.  </font> </p>
 
-Good if you hack code and also run simulations
+<br> <p style="text-align: center; "> This </p>
 
+~~~~{.console}
+$ python script.py 3 2
+~~~~
 
-## Capturing the environment
+<p style="text-align: center; "> versus this </p>
 
-## IPython
-
-## IPython and Sumatra
+~~~~{.console}
+$ smt run 3 2
+~~~~
 
 ## Issues
 
+<br>
+
+ - Concurrency (fixed with Postgres) <br><br>
+ - Live introspection (hack API) <br><br>
+ - Parallel, distributed, SGE 
+
+
+## Aside: Why is IPython cool?
+
+Embed live code with documentation on the web!!! Dynamic, not static.
+
+## IPython and Sumatra
+
+Sumatra record tables coupled with lab notebook.
+
+## Blogging
+
+Sometimes you need static. Can't always have live IPython and Sumatra running. Need to fix in time.
+
 ## Conclusion
 
+<br>
+
+ - Records simulations, builds on version control. <br><br>
+ - Web interface is vital coupled with database. <br><br>
+
+## Future Work
+
+<br>
+
+ - Postgres patch and database configuration. <br><br>
+ - Live introspection (kill, suspend and restart). <br><br>
