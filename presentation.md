@@ -10,7 +10,7 @@
 <!-- pandoc --highlight-style espresso -s --mathml -i -t dzslides presentation.md -o presentation.html -->
 
 <p style="text-align: center;"> <i>"Automate away ability to make dumb
-mistakes. Don't use human based process and documentation."</i>,<br>
+mistakes. Don't use human based process."</i>,<br>
 Tim Clem, Github bigwig, SciPy 2012 </p>
 
 <p style="text-align: center;"><iframe width="560" height="410" src="http://www.youtube.com/embed/R75krhS51d0?rel=0" frameborder="0"> </iframe></p>
@@ -30,7 +30,7 @@ print 'waiting for ' + str(wait) + '(s)'
 time.sleep(wait)
 ~~~~
 
-## Version Control
+## A Workflow
 
 ~~~~{.console}
 $ python script.py 6
@@ -88,7 +88,7 @@ waiting for 8(s)
 
 ~~~~{.console}
 $ git add script.py
-$ git ci -m "Add another argument ..." script.py
+$ git ci script.py -m "Add another argument ..."
 [master 250e0a9] Add another argument ...
  1 files changed, 4 insertions(+), 2 deletions(-)
 ~~~~
@@ -109,7 +109,8 @@ $ git log
 ~~~~{.console}
 $ git diff 2f12ea..250e0a
 -wait = float(sys.argv[1]) 
-+wait = float(sys.argv[1]) + float(sys.argv[2])
++wait = float(sys.argv[1]) + \
++    float(sys.argv[2])
 ~~~~
 
 ## Simulation Management
@@ -126,7 +127,8 @@ waiting for 8(s)
 <p style="text-align: center;">Invent scheme for recording simulations.</p>
 
 ~~~~{.console}
-$ python script.py 4 4 > output0 ## record event
+$ ## record event
+$ python script.py 4 4 > output0 
 $ git add output0
 $ git ci output0 -m "Adding output file."
 ~~~~
@@ -174,10 +176,10 @@ Launch_Mode      : serial
 User             : Daniel Wheeler <daniel.w...
 ~~~~
 
-## Sumatra Web Interface
+## 
 
-<!-- on ruth do "smtweb --allips --no-browser" -->
-<!-- <p style="text-align: center;"><iframe width="100%" height="360" src="http://129.6.153.93:8000/sumatrademo/622fbd437c4a/" frameborder="0" border="0"> </iframe></p> -->
+<!-- on ruth do "smtweb --allips --no-browser -p 8001" -->
+<p style="text-align: center;"><iframe width="100%" height="80%"  allowfullscreen seamless src="http://129.6.153.60:8001/sumatrademo/622fbd437c4a/" frameborder="0" border="0"> </iframe></p>
 
 ## Modify Code
 
@@ -196,18 +198,17 @@ print 'waiting for ' + str(wait) + '(s)'
 time.sleep(wait)
 ~~~~
 
-## Record Dependencies
+## 
 
-<!-- <p style="text-align: center;"><iframe width="100%" height="360" src="http://129.6.153.93:8000/sumatrademo/6b53762ca24e/" frameborder="0" border="0"> </iframe></p> -->
+<p style="text-align: center;"><iframe width="100%" height="80%"  allowfullscreen seamless src="http://129.6.153.60:8001/sumatrademo/6b53762ca24e/" frameborder="0" border="0"> </iframe></p>
 
 ## Sumatra Web Interface
 
-<!-- on ruth do "smtweb --allips --no-browser" -->
-<!-- <p style="text-align: center;"> <http://129.6.153.93:8000/sumatrademo/> </p> -->
+<p style="text-align: center;"> <http://129.6.153.60:8001/sumatrademo/> </p>
 
-## Sumatra Overview
+## 
 
-<!-- <p style="text-align: center;"><iframe width="100%" height="360" src="https://www.ohloh.net/p/Sumatra" frameborder="0" border="0"> </iframe></p> -->
+<p style="text-align: center;"><iframe width="100%" height="80%" allowfullscreen seamless src="https://www.ohloh.net/p/Sumatra" frameborder="0" border="0"> </iframe></p>
 
 ## Andrew Davison
 
@@ -242,33 +243,43 @@ $ smt run 3 2
 
 <br>
 
- - Concurrency (fixed with Postgres) <br><br>
- - Live introspection (hack API) <br><br>
+ - Concurrency (fixed with Postgres instead of SQLite) <br><br>
+ - Live inspection (kill, suspend and restart) <br><br>
  - Parallel, distributed, SGE 
 
+## Active Research Example
 
-## Aside: Why is IPython cool?
+<p style="text-align: center;"> <http://129.6.153.60:8000/extremefill/> </p>
+<!-- <p style="text-align: center;"><iframe width="100%" height="80%"  allowfullscreen seamless src="http://129.6.153.60:8000/extremefill/" frameborder="0" border="0"> </iframe></p> -->
 
-Embed live code with documentation on the web!!! Dynamic, not static.
+## IPython Notebook and Sumatra
 
-## IPython and Sumatra
+<p style="text-align: center;"> <http://129.6.153.60:7000> </p>
+<!-- <p style="text-align: center;"><iframe width="100%" height="80%"  allowfullscreen seamless src="http://129.6.153.60:7000" frameborder="0" border="0"> </iframe></p> -->
 
-Sumatra record tables coupled with lab notebook.
+## Why is IPython Notebook a Big Deal?
+
+<br>
+<p style="text-align: center; "> <font color="red"> Embed live code with documentation on the web!!! </font> </p>
+
+<br> <br>
+<p style="text-align: center; "> Dynamic, not static </p>
+
+<br> <br>
+<p style="text-align: center; "> but sometimes we need static </p>
 
 ## Blogging
 
-Sometimes you need static. Can't always have live IPython and Sumatra running. Need to fix in time.
-
-## Conclusion
-
-<br>
-
- - Records simulations, builds on version control. <br><br>
- - Web interface is vital coupled with database. <br><br>
+<p style="text-align: center;"> <http://wd15.github.io/2013/05/07/extremefill2d/> </p>
+<!-- <p style="text-align: center;"><iframe width="100%" height="80%" allowfullscreen seamless src="http://wd15.github.io/2013/05/07/extremefill2d/" frameborder="0" border="0"> </iframe></p> -->
 
 ## Future Work
 
-<br>
-
  - Postgres patch and database configuration. <br><br>
- - Live introspection (kill, suspend and restart). <br><br>
+ - Live inspection (kill, suspend and restart). <br><br>
+ - Web interface improvements (URL filtering instead of AJAX) <br><br>
+ - Testing (close integration with Buildbot). <br><br>
+ - Distributed?
+
+ 
+ 
