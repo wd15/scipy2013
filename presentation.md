@@ -7,11 +7,14 @@
 <!-- pandoc -t dzslides -s presentation.md -o presentation.html -->
 
 <!-- pandoc --highlight-style pygments -s --mathml -i -t dzslides presentation.md -o presentation.html -->
-<!-- pandoc --highlight-style espresso -s --mathml -i -t dzslides presentation.md -o presentation.html -->
+<!-- pandoc --highlight-style espresso -s --mathml -i -t dzslides presntation.md -o presentation.html -->
 
 <p style="text-align: center;"> <i>"Automate away ability to make dumb
 mistakes. Don't use human based process."</i>,<br>
 Tim Clem, Github bigwig, SciPy 2012 </p>
+
+ <!-- - This is a short clip from a talk I saw at scipy last year. -->
+ <!-- - The speaker is a git hub gut and his talk was about ideas and philosophy used at github. -->
 
 <p style="text-align: center;"><iframe width="560" height="410" src="http://www.youtube.com/embed/R75krhS51d0?rel=0" frameborder="0"> </iframe></p>
 
@@ -162,7 +165,7 @@ Created record store
 <p style="text-align: center;">View record.</p>
 
 ~~~~{.console}
-$ smt list
+$ smt list --long
 ----------------------------------------------
 Label            : 622fbd437c4a
 Timestamp        : 2013-05-08 12:07:15.8991...
@@ -212,11 +215,13 @@ time.sleep(wait)
 
 ## Andrew Davison
 
+<p style="text-align: center;">Eats his own dog food.</p>
  
 ![](id_photo5.jpg)
 
 <!-- ## Andrew Davison -->
 
+<!-- He eats his own dog food -->
 <!-- Based at CNRS <br> -->
 <!-- Models neuronal networks <br> -->
 <!-- Promotes reproducible research in neuroscience <br> -->
@@ -272,6 +277,21 @@ $ smt run 3 2
 
 <p style="text-align: center;"> <http://wd15.github.io/2013/05/07/extremefill2d/> </p>
 <!-- <p style="text-align: center;"><iframe width="100%" height="80%" allowfullscreen seamless src="http://wd15.github.io/2013/05/07/extremefill2d/" frameborder="0" border="0"> </iframe></p> -->
+
+## API
+
+~~~~{.python .numberLines}
+import sumatra as smt
+
+project = smt.load_project()
+record = project.new_record(parameters,
+                            main_file, 
+                            reason)
+record.tags.add('tag')
+runMySimulation(parameters)
+project.add_record(record)
+project.save()
+~~~~
 
 ## Future Work
 

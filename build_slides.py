@@ -15,6 +15,7 @@ def pygmetize(s):
     # os.system('pygmentize -f html -O full,style=colorful,linenos=1 -l console -o ' + tmp_html + " " + tmp_console)
     os.remove(tmp_console)
     html = open(tmp_html, 'r').read()
+    os.remove(tmp_html)
     html = html.replace('<span class="gp">', '<span class="gp" style="color: #008000; font-weight: bold ">')
     html = html.replace('<span class="go">', '<span class="go" style="color: #808080;">')
     html = html.replace('<span class="c">', '<span class="c" style="color: #808080;">')
@@ -44,4 +45,4 @@ f.close()
 
 os.system('pandoc --highlight-style espresso -s --mathml -i -t dzslides ' + tmp_md + ' -o ' + prefix + '.html')
 
-#os.remove(tmp_md)
+os.remove(tmp_md)
