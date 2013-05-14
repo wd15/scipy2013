@@ -282,13 +282,17 @@ $ smt run 3 2
 
 ~~~~{.python .numberLines}
 import sumatra as smt
-
+import time
+## create record
 project = smt.load_project()
-record = project.new_record(parameters,
-                            main_file, 
-                            reason)
-record.tags.add('tag')
-runMySimulation(parameters)
+record = project.new_record(parameters, ...)
+record.datastore.root = '/path/to/data'
+## run simulation
+runMySimulation(parameters,
+                record.datastore.root)
+## save record
+record.output_data = \
+    record.datastore.find_new_data()
 project.add_record(record)
 project.save()
 ~~~~
@@ -299,7 +303,7 @@ project.save()
  - Live inspection (kill, suspend and restart). <br><br>
  - Web interface improvements (URL filtering instead of AJAX) <br><br>
  - Testing (close integration with Buildbot). <br><br>
- - Distributed?
+ - Distributed.
 
  
  
