@@ -49,8 +49,8 @@ waiting for 5(s)
 ~~~~{.console}
 $ cp script.py script-old.py
 $ edit script.py ## Make some changes ...
-$ cp scipt-old.py script-older.py
-$ cp scipt.py script-old.py
+$ cp script-old.py script-older.py
+$ cp script.py script-old.py
 ~~~~
 
 <p style="text-align: center;">Invent scheme for version control.</p>
