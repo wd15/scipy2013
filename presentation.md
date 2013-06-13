@@ -22,21 +22,40 @@ Tim Clem, Github bigwig, SciPy 2012 </p>
 <!-- START 00:27:43 -->
 <!-- LENGTH 00:01:00 -->
 
+
 ## Example
 
 ~~~~{.python .numberLines}
-## script.py
-import time
-import sys
-wait = float(sys.argv[1])
-print 'waiting for ' + str(wait) + '(s)'
-time.sleep(wait)
+## read in sumatra logo
+img = mpimg.imread('sumatra_logo.png')
+
+## solve distance function
+img = skfmm.distance(2 * img[:,:,3] - 1)
+v = CellVariable(img)
+
+## solve diffusion equation
+(fp.TransientTerm() == \
+  fp.DiffusionTerm()).solve(v, dt=1.)
+
+## dump to data file
+np.savetxt(get_datapath(), \
+  np.reshape(v.value, img.shape))
 ~~~~
+
+## Example
+
+<p style="text-align: center; border:0; padding:0px;"><img height="20%" border="0" padding="0" src="./sumatra_contour_logo.png"></p>
+<p style="text-align: center; border:0; padding:0px;">Calculate distance function</p>
+<p style="text-align: center; border:0; padding:0px;"> <img height="20%" border="0" padding="0" src="./levelset.png"></p>
+<p style="text-align: center; border:0; padding:0px;">Apply some diffusion</p>
+<p style="text-align: center; border:0; padding:0px;"> <img height="20%" border="0" padding="0" src="./diffusion.png"></p>
+
+
 
 ## A Workflow
 
 ~~~~{.console}
-$ python script.py 6
+$ python script.py
 waiting for 6(s)
 $ edit script.py ## Add another argument ...
 $ python script.py 4 1
