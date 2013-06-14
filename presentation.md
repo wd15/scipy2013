@@ -25,21 +25,17 @@ Tim Clem, Github bigwig, SciPy 2012 </p>
 
 ## Example
 
-~~~~{.python .numberLines}
-## read in sumatra logo
+~~~~{.python .numberLines startFrom="9"}
+print("read in sumatra logo")
 img = mpimg.imread('sumatra_logo.png')
 
-## solve distance function
+print("solve distance function")
 img = skfmm.distance(2 * img[:,:,3] - 1)
 v = CellVariable(img)
 
-## solve diffusion equation
+print("solve diffusion equation")
 (fp.TransientTerm() == \
-  fp.DiffusionTerm()).solve(v, dt=1.)
-
-## dump to data file
-np.savetxt(get_datapath(), \
-  np.reshape(v.value, img.shape))
+ fp.DiffusionTerm()).solve(v, dt=1.)
 ~~~~
 
 ## Example
@@ -56,84 +52,43 @@ np.savetxt(get_datapath(), \
 
 ~~~~{.console}
 $ python script.py
-waiting for 6(s)
-$ edit script.py ## Add another argument ...
-$ python script.py 4 1
-waiting for 5(s)
+read in sumatra logo
+solve distance function
+solve diffusion equation
+$ edit script.py ## Change coeff on command line
+$ python script.py --coeff=10.0
+read in sumatra logo
+solve distance function
+solve diffusion equation with coeff=10.0
 ~~~~
 
 <p style="text-align: center;">No history.</p>
-<br>
-
-~~~~{.console}
-$ cp script.py script-old.py
-$ edit script.py ## Make some changes ...
-$ cp script-old.py script-older.py
-$ cp script.py script-old.py
-~~~~
 
 <p style="text-align: center;">Invent scheme for version control.</p>
 <br>
 
 ##  Version Control
 
-<p style="text-align: center;">Initialize repository.</p>
-
-~~~~{.console}
-$ git init
-Initialized empty Git repository in ...
-~~~~
-
-<br>
-<p style="text-align: center;">Store a version of the code.</p>
-
-~~~~{.console}
-$ git add script.py
-$ git commit script.py -m "First commit."
-[master (root-commit) 2f12eae] First commit
- 1 files changed, 20 insertions(+), 0 deletions(-)
- create mode 100644 script.py
-~~~~
-
-## Version Control
-
-<p style="text-align: center;">Edit and run as before.</p>
-
-~~~~{.console}
-$ edit script.py ## Add another argument ...
-$ python script.py 4 4
-waiting for 8(s)
-~~~~
-
-<br>
-<p style="text-align: center;">Store the new version.</p>
-
-~~~~{.console}
-$ git add script.py
-$ git ci script.py -m "Add another argument ..."
-[master 250e0a9] Add another argument ...
- 1 files changed, 4 insertions(+), 2 deletions(-)
-~~~~
-
-## Version Control
-
 <p style="text-align: center;">History.</p>
 
 ~~~~{.console}
 $ git log
-250e0a989a19 Add another argument ...
-2f12eaef785b First commit.
+c22025272e14 Change diffusion coeff on command line.
+8c0b0e6d95ab Add distance function and diffusion script.
 ~~~~
 
 <br>
 <p style="text-align: center;">Query history.</p>
 
 ~~~~{.console}
-$ git diff 2f12ea..250e0a
--wait = float(sys.argv[1]) 
-+wait = float(sys.argv[1]) + \
-+    float(sys.argv[2])
+$ git diff 8c0b0..c2202
+-print("solve diffusion equation")
++print("solve diffusion equation with coeff=%s" % str(coeff))
+- fp.DiffusionTerm()).solve(v, dt=1.)
++ fp.DiffusionTerm(coeff)).solve(v, dt=1.)
 ~~~~
+
+
 
 ## Simulation Management
 
@@ -324,5 +279,5 @@ project.save()
  - Testing (close integration with Buildbot). <br><br>
  - Distributed.
 
- 
+## Slides availabe from Github 
  
