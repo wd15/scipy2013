@@ -59,6 +59,18 @@ html_string = html_string.replace('id="simulation-management-4"', '''id="simulat
 
 html_string = html_string.replace('transition: left', 'transition: right', 10)
 
+html_string = html_string.replace('</section>', """
+<footer style="border:0; padding:0px;background-color: #99D6EB;">
+<p style="text-align: center; border:0; padding:0px; background-color: #99D6EB;"><img height="15%" border="0" padding="0" src="./NIST_logo.png"></p>
+</footer>
+</section>""", 1)
+
+html_string = html_string.replace("font-family: Arial, serif", "font-family: Glode, Glode", 1)
+
+html_string = html_string.replace("background-color: white", "background-color: #99D6EB", 1)
+
+html_string = html_string.replace("<h1>Simulation Management</h1>", """<span style="display:block; background-color:#99D6EB;"><h1>Simulation Management</h1></span>""", 10)
+
 f = open(html_file, 'w')
 f.write(html_string)
 f.close()

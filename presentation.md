@@ -1,8 +1,6 @@
 % Using Sumatra to Manage Numerical Simulations
 % Daniel Wheeler
-% May 14, 2013
-
-<p style="text-align: center; border:0; padding:0px;"><img height="20%" border="0" padding="0" src="./NIST-Logo_5.jpg"></p>
+% June 27, 2013
 
 ## 
 
@@ -20,9 +18,19 @@ img = mpimg.imread('sumatra_logo.png')
 
 print("solve distance function")
 img = skfmm.distance(2 * img[:,:,3] - 1)
-v = CellVariable(img)
+~~~~
+
+## Example
+
+~~~~{.python .numberLines startFrom="9"}
+print("read in sumatra logo")
+img = mpimg.imread('sumatra_logo.png')
+
+print("solve distance function")
+img = skfmm.distance(2 * img[:,:,3] - 1)
 
 print("solve diffusion equation")
+v = CellVariable(img)
 (fp.TransientTerm() == \
  fp.DiffusionTerm()).solve(v, dt=1.)
 ~~~~
@@ -128,69 +136,75 @@ $ git diff 8c0b0..c2202
 
 ## Simulation Management
 
-<p style="text-align: center;">Version control is good, but no record of simulations.</p>
-
 ## Simulation Management
 
-<p style="text-align: center;">Version control is good, but no record of simulations.</p>
-
 ~~~~{.console}
-$ python script.py 4 4 ## no record
-waiting for 8(s)
+$ python script.py --coeff=20.0 ## no record
+read in sumatra logo
+solve distance function
+solve diffusion equation with coeff=20.0
 ~~~~
 
 ## Simulation Management
 
-<p style="text-align: center;">Version control is good, but no record of simulations.</p>
-
 ~~~~{.console}
-$ python script.py 4 4 ## no record
-waiting for 8(s)
+$ python script.py --coeff=20.0 ## no record
+read in sumatra logo
+solve distance function
+solve diffusion equation with coeff=20.0
 ~~~~
 
+<span style="display:block; background-color:#99D6EB;">
 <p style="text-align: center;">Invent scheme for recording simulations.</p>
-
+</span>
 
 ## Simulation Management
 
-<p style="text-align: center;">Version control is good, but no record of simulations.</p>
-
 ~~~~{.console}
-$ python script.py 4 4 ## no record
-waiting for 8(s)
+$ python script.py --coeff=20.0 ## no record
+read in sumatra logo
+solve distance function
+solve diffusion equation with coeff=20.0
 ~~~~
 
+<span style="display:block; background-color:#99D6EB;">
 <p style="text-align: center;">Invent scheme for recording simulations.</p>
+</span>
 
 ~~~~{.console}
 $ ## record event
-$ python script.py 4 4 > output0 
-$ git add output0
-$ git ci output0 -m "Adding output file."
+$ git co -b sim0
+$ edit script.py
+$ python script.py --coeff=20.0 > output 
+$ git add output script.py data.txt
+$ git ci output0 -m "Add output for coeff=20"
 ~~~~
-
 
 ## Simulation Management
 
-<p style="text-align: center;">Version control is good, but no record of simulations.</p>
-
 ~~~~{.console}
-$ python script.py 4 4 ## no record
-waiting for 8(s)
+$ python script.py --coeff=20.0 ## no record
+read in sumatra logo
+solve distance function
+solve diffusion equation with coeff=20.0
 ~~~~
 
-
+<span style="display:block; background-color:#99D6EB;">
 <p style="text-align: center;">Invent scheme for recording simulations.</p>
+</span>
 
 ~~~~{.console}
 $ ## record event
-$ python script.py 4 4 > output0 
-$ git add output0
-$ git ci output0 -m "Adding output file."
+$ git co -b sim0
+$ edit script.py
+$ python script.py --coeff=20.0 > output 
+$ git add output script.py data.txt
+$ git ci output0 -m "Add output for coeff=20"
 ~~~~
 
-<p style="text-align: center;">Version control does not record events.</p>
-
+<span style="display:block; background-color:#99D6EB;">
+<p style="text-align: center;">Version control not designed to record simulations.</p>
+</span>
 
 ## Sumatra
 
