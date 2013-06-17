@@ -2,26 +2,15 @@
 % Daniel Wheeler
 % May 14, 2013
 
+<p style="text-align: center; border:0; padding:0px;"><img height="20%" border="0" padding="0" src="./NIST-Logo_5.jpg"></p>
+
 ## 
-
-<!-- pandoc -t dzslides -s presentation.md -o presentation.html -->
-
-<!-- pandoc --highlight-style pygments -s --mathml -i -t dzslides presentation.md -o presentation.html -->
-<!-- pandoc --highlight-style espresso -s --mathml -i -t dzslides presntation.md -o presentation.html -->
 
 <p style="text-align: center;"> <i>"Automate away ability to make dumb
 mistakes. Don't use human based process."</i>,<br>
-Tim Clem, Github bigwig, SciPy 2012 </p>
-
- <!-- - This is a short clip from a talk I saw at scipy last year. -->
- <!-- - The speaker is a git hub gut and his talk was about ideas and philosophy used at github. -->
+Tim Clem, Github, SciPy 2012 </p>
 
 <p style="text-align: center;"><iframe width="560" height="410" src="http://www.youtube.com/embed/R75krhS51d0?rel=0" frameborder="0"> </iframe></p>
-
-<!-- ffmpeg -acodec copy -vcodec copy -ss START -t LENGTH -i ORIGINALFILE.mp4 OUTFILE.mp4 -->
-<!-- START 00:27:43 -->
-<!-- LENGTH 00:01:00 -->
-
 
 ## Example
 
@@ -41,12 +30,20 @@ print("solve diffusion equation")
 ## Example
 
 <p style="text-align: center; border:0; padding:0px;"><img height="20%" border="0" padding="0" src="./sumatra_contour_logo.png"></p>
+
+## Example
+
+<p style="text-align: center; border:0; padding:0px;"><img height="20%" border="0" padding="0" src="./sumatra_contour_logo.png"></p>
 <p style="text-align: center; border:0; padding:0px;">Calculate distance function</p>
 <p style="text-align: center; border:0; padding:0px;"> <img height="20%" border="0" padding="0" src="./levelset.png"></p>
-<p style="text-align: center; border:0; padding:0px;">Apply some diffusion</p>
+
+## Example
+
+<p style="text-align: center; border:0; padding:0px;"><img height="20%" border="0" padding="0" src="./sumatra_contour_logo.png"></p>
+<p style="text-align: center; border:0; padding:0px;">Calculate distance function</p>
+<p style="text-align: center; border:0; padding:0px;"> <img height="20%" border="0" padding="0" src="./levelset.png"></p>
+<p style="text-align: center; border:0; padding:0px;">Apply some diffusion </p>
 <p style="text-align: center; border:0; padding:0px;"> <img height="20%" border="0" padding="0" src="./diffusion.png"></p>
-
-
 
 ## A Workflow
 
@@ -55,7 +52,37 @@ $ python script.py
 read in sumatra logo
 solve distance function
 solve diffusion equation
-$ edit script.py ## Change coeff on command line
+$ edit script.py ## Change coeff
+$ python script.py --coeff=10.0
+read in sumatra logo
+solve distance function
+solve diffusion equation with coeff=10.0
+~~~~
+
+## A Workflow
+
+~~~~{.console}
+$ python script.py
+read in sumatra logo
+solve distance function
+solve diffusion equation
+$ edit script.py ## Change coeff
+$ python script.py --coeff=10.0
+read in sumatra logo
+solve distance function
+solve diffusion equation with coeff=10.0
+~~~~
+
+<p style="text-align: center;">No history.</p>
+
+## A Workflow
+
+~~~~{.console}
+$ python script.py
+read in sumatra logo
+solve distance function
+solve diffusion equation
+$ edit script.py ## Change coeff
 $ python script.py --coeff=10.0
 read in sumatra logo
 solve distance function
@@ -65,29 +92,63 @@ solve diffusion equation with coeff=10.0
 <p style="text-align: center;">No history.</p>
 
 <p style="text-align: center;">Invent scheme for version control.</p>
-<br>
+
 
 ##  Version Control
 
-<p style="text-align: center;">History.</p>
+<p style="text-align: center;">History</p>
 
 ~~~~{.console}
 $ git log
-c22025272e14 Change diffusion coeff on command line.
-8c0b0e6d95ab Add distance function and diffusion script.
+c22025272e14 Change diffusion coeff
+8c0b0e6d95ab Add distance function
+~~~~
+
+##  Version Control
+
+<p style="text-align: center;">History</p>
+
+~~~~{.console}
+$ git log
+c22025272e14 Change diffusion coeff
+8c0b0e6d95ab Add distance function
 ~~~~
 
 <br>
-<p style="text-align: center;">Query history.</p>
+<p style="text-align: center;">Query history</p>
 
 ~~~~{.console}
 $ git diff 8c0b0..c2202
 -print("solve diffusion equation")
-+print("solve diffusion equation with coeff=%s" % str(coeff))
++print("solve diffusion equation with coeff=%s"\
++      % str(coeff))
 - fp.DiffusionTerm()).solve(v, dt=1.)
 + fp.DiffusionTerm(coeff)).solve(v, dt=1.)
 ~~~~
 
+## Simulation Management
+
+<p style="text-align: center;">Version control is good, but no record of simulations.</p>
+
+## Simulation Management
+
+<p style="text-align: center;">Version control is good, but no record of simulations.</p>
+
+~~~~{.console}
+$ python script.py 4 4 ## no record
+waiting for 8(s)
+~~~~
+
+## Simulation Management
+
+<p style="text-align: center;">Version control is good, but no record of simulations.</p>
+
+~~~~{.console}
+$ python script.py 4 4 ## no record
+waiting for 8(s)
+~~~~
+
+<p style="text-align: center;">Invent scheme for recording simulations.</p>
 
 
 ## Simulation Management
@@ -99,8 +160,6 @@ $ python script.py 4 4 ## no record
 waiting for 8(s)
 ~~~~
 
-<br>
-<br>
 <p style="text-align: center;">Invent scheme for recording simulations.</p>
 
 ~~~~{.console}
@@ -110,8 +169,28 @@ $ git add output0
 $ git ci output0 -m "Adding output file."
 ~~~~
 
-<br>
+
+## Simulation Management
+
+<p style="text-align: center;">Version control is good, but no record of simulations.</p>
+
+~~~~{.console}
+$ python script.py 4 4 ## no record
+waiting for 8(s)
+~~~~
+
+
+<p style="text-align: center;">Invent scheme for recording simulations.</p>
+
+~~~~{.console}
+$ ## record event
+$ python script.py 4 4 > output0 
+$ git add output0
+$ git ci output0 -m "Adding output file."
+~~~~
+
 <p style="text-align: center;">Version control does not record events.</p>
+
 
 ## Sumatra
 
@@ -156,7 +235,7 @@ User             : Daniel Wheeler <daniel.w...
 ## 
 
 <!-- on ruth do "smtweb --allips --no-browser -p 8001" -->
-<p style="text-align: center;"><iframe width="100%" height="80%"  allowfullscreen seamless src="http://129.6.153.60:8001/sumatrademo/622fbd437c4a/" frameborder="0" border="0"> </iframe></p>
+<!-- <p style="text-align: center;"><iframe width="100%" height="80%"  allowfullscreen seamless src="http://129.6.153.60:8001/sumatrademo/622fbd437c4a/" frameborder="0" border="0"> </iframe></p> -->
 
 ## Modify Code
 
@@ -177,11 +256,11 @@ time.sleep(wait)
 
 ## 
 
-<p style="text-align: center;"><iframe width="100%" height="80%"  allowfullscreen seamless src="http://129.6.153.60:8001/sumatrademo/6b53762ca24e/" frameborder="0" border="0"> </iframe></p>
+<!-- <p style="text-align: center;"><iframe width="100%" height="80%"  allowfullscreen seamless src="http://129.6.153.60:8001/sumatrademo/6b53762ca24e/" frameborder="0" border="0"> </iframe></p> -->
 
 ## Sumatra Web Interface
 
-<p style="text-align: center;"> <http://129.6.153.60:8001/sumatrademo/> </p>
+<!-- <p style="text-align: center;"> <http://129.6.153.60:8001/sumatrademo/> </p> -->
 
 ## 
 
@@ -228,12 +307,12 @@ $ smt run 3 2
 
 ## Active Research Example
 
-<p style="text-align: center;"> <http://129.6.153.60:8000/extremefill/> </p>
+<!-- <p style="text-align: center;"> <http://129.6.153.60:8000/extremefill/> </p> -->
 <!-- <p style="text-align: center;"><iframe width="100%" height="80%"  allowfullscreen seamless src="http://129.6.153.60:8000/extremefill/" frameborder="0" border="0"> </iframe></p> -->
 
 ## IPython Notebook and Sumatra
 
-<p style="text-align: center;"> <http://129.6.153.60:7000> </p>
+<!-- <p style="text-align: center;"> <http://129.6.153.60:7000> </p> -->
 <!-- <p style="text-align: center;"><iframe width="100%" height="80%"  allowfullscreen seamless src="http://129.6.153.60:7000" frameborder="0" border="0"> </iframe></p> -->
 
 ## Why is IPython Notebook a Big Deal?

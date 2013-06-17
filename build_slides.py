@@ -30,7 +30,6 @@ f = open(md_file, 'r')
 md_string = f.read()
 f.close()
 
-
 console_pattern = r"~~~~~*[{]\s*[.]console\s*[}]((.|\n)*?)~~~~~*"
 match = re.search(console_pattern, md_string)
 
@@ -43,6 +42,23 @@ f = open(tmp_md, 'w')
 f.write(md_string)
 f.close()
 
-os.system('pandoc --highlight-style espresso -s --mathml -i -t dzslides ' + tmp_md + ' -o ' + prefix + '.html')
+html_file = prefix + '.html'
+os.system('pandoc --highlight-style espresso -s --mathjax -i -t dzslides ' + tmp_md + ' -o ' + html_file)
 
 os.remove(tmp_md)
+
+f = open(html_file, 'r')
+html_string = f.read()
+f.close()
+
+html_string = html_string.replace('id="simulation-management"', '''id="simulation-management" style="background-image:url('labbook70.jpg');"''', 10)
+html_string = html_string.replace('id="simulation-management-1"', '''id="simulation-management-1" style="background-image:url('labbook70.jpg');"''', 10)
+html_string = html_string.replace('id="simulation-management-2"', '''id="simulation-management-2" style="background-image:url('labbook70.jpg');"''', 10)
+html_string = html_string.replace('id="simulation-management-3"', '''id="simulation-management-3" style="background-image:url('labbook70.jpg');"''', 10)
+html_string = html_string.replace('id="simulation-management-4"', '''id="simulation-management-4" style="background-image:url('labbook70.jpg');"''', 10)
+
+html_string = html_string.replace('transition: left', 'transition: right', 10)
+
+f = open(html_file, 'w')
+f.write(html_string)
+f.close()
