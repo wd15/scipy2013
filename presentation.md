@@ -2,13 +2,26 @@
 % Daniel Wheeler
 % June 27, 2013
 
-## 
+## Context
+
+ - Materials Genome Initiative - digital data, experimental data, computational tools
+ - FiPy - Finite Volume PDE solver in Python
+ - Materials Science research 
+
+<p style="text-align: center; border:0; padding:0px;"><img height="50%" border="0" padding="0" src="manufact_goals.png"></p>
+
+<!-- <p style="text-align: center;"><iframe width="560" height="410" src="manufact_goal15.png" frameborder="0"> </iframe></p> -->
+
+<!-- ![](manufact_goals15.png) -->
+
+
+## Automate
 
 <p style="text-align: center;"> <i>"Automate away ability to make dumb
 mistakes. Don't use human based process."</i>,<br>
 Tim Clem, Github, SciPy 2012 </p>
 
-<p style="text-align: center;"><iframe width="560" height="410" src="http://www.youtube.com/embed/R75krhS51d0?rel=0" frameborder="0"> </iframe></p>
+
 
 ## Example
 
@@ -30,7 +43,7 @@ print("solve distance function")
 img = skfmm.distance(2 * img[:,:,3] - 1)
 
 print("solve diffusion equation")
-v = CellVariable(img)
+v = arrayToCellVariable(img)
 (fp.TransientTerm() == \
  fp.DiffusionTerm()).solve(v, dt=1.)
 ~~~~
@@ -61,10 +74,10 @@ read in sumatra logo
 solve distance function
 solve diffusion equation
 $ edit script.py ## Change coeff
-$ python script.py --coeff=10.0
+$ python script.py --coeff 10.0
 read in sumatra logo
 solve distance function
-solve diffusion equation with coeff=10.0
+solve diffusion equation with coeff 10.0
 ~~~~
 
 ## A Workflow
@@ -75,10 +88,10 @@ read in sumatra logo
 solve distance function
 solve diffusion equation
 $ edit script.py ## Change coeff
-$ python script.py --coeff=10.0
+$ python script.py --coeff 10.0
 read in sumatra logo
 solve distance function
-solve diffusion equation with coeff=10.0
+solve diffusion equation with coeff 10.0
 ~~~~
 
 <p style="text-align: center;">No history.</p>
@@ -91,20 +104,25 @@ read in sumatra logo
 solve distance function
 solve diffusion equation
 $ edit script.py ## Change coeff
-$ python script.py --coeff=10.0
+$ python script.py --coeff 10.0
 read in sumatra logo
 solve distance function
-solve diffusion equation with coeff=10.0
+solve diffusion equation with coeff 10.0
 ~~~~
 
 <p style="text-align: center;">No history.</p>
 
-<p style="text-align: center;">Invent scheme for version control.</p>
+<p style="text-align: center;">Invent a scheme for version
+control.</p>
+
+##  Version Control
 
 
 ##  Version Control
 
+<span style="display:block; background-color:#99D6EB;">
 <p style="text-align: center;">History</p>
+</span>
 
 ~~~~{.console}
 $ git log
@@ -114,7 +132,9 @@ c22025272e14 Change diffusion coeff
 
 ##  Version Control
 
+<span style="display:block; background-color:#99D6EB;">
 <p style="text-align: center;">History</p>
+</span>
 
 ~~~~{.console}
 $ git log
@@ -122,8 +142,9 @@ c22025272e14 Change diffusion coeff
 8c0b0e6d95ab Add distance function
 ~~~~
 
-<br>
+<span style="display:block; background-color:#99D6EB;">
 <p style="text-align: center;">Query history</p>
+</span>
 
 ~~~~{.console}
 $ git diff 8c0b0..c2202
@@ -139,177 +160,175 @@ $ git diff 8c0b0..c2202
 ## Simulation Management
 
 ~~~~{.console}
-$ python script.py --coeff=20.0 ## no record
+$ python script.py --coeff 20.0 ## no record
 read in sumatra logo
 solve distance function
-solve diffusion equation with coeff=20.0
+solve diffusion equation with coeff 20.0
 ~~~~
 
 ## Simulation Management
 
 ~~~~{.console}
-$ python script.py --coeff=20.0 ## no record
+$ python script.py --coeff 20.0 ## no record
 read in sumatra logo
 solve distance function
-solve diffusion equation with coeff=20.0
+solve diffusion equation with coeff 20.0
 ~~~~
 
 <span style="display:block; background-color:#99D6EB;">
-<p style="text-align: center;">Invent scheme for recording simulations.</p>
+<p style="text-align: center;">Invent a scheme for recording simulations.</p>
 </span>
 
 ## Simulation Management
 
 ~~~~{.console}
-$ python script.py --coeff=20.0 ## no record
+$ python script.py --coeff 20.0 ## no record
 read in sumatra logo
 solve distance function
-solve diffusion equation with coeff=20.0
+solve diffusion equation with coeff 20.0
 ~~~~
 
 <span style="display:block; background-color:#99D6EB;">
-<p style="text-align: center;">Invent scheme for recording simulations.</p>
-</span>
-
-~~~~{.console}
-$ ## record event
-$ git co -b sim0
-$ edit script.py
-$ python script.py --coeff=20.0 > output 
-$ git add output script.py data.txt
-$ git ci output0 -m "Add output for coeff=20"
-~~~~
-
-## Simulation Management
-
-~~~~{.console}
-$ python script.py --coeff=20.0 ## no record
-read in sumatra logo
-solve distance function
-solve diffusion equation with coeff=20.0
-~~~~
-
-<span style="display:block; background-color:#99D6EB;">
-<p style="text-align: center;">Invent scheme for recording simulations.</p>
+<p style="text-align: center;">Invent a scheme for recording simulations.</p>
 </span>
 
 ~~~~{.console}
 $ ## record event
 $ git co -b sim0
 $ edit script.py
-$ python script.py --coeff=20.0 > output 
-$ git add output script.py data.txt
-$ git ci output0 -m "Add output for coeff=20"
+$ python script.py --coeff 20.0 > stdout
+$ git add stdout script.py data.txt
+$ git ci -m "Add output for coeff 20"
+~~~~
+
+## Simulation Management
+
+~~~~{.console}
+$ python script.py --coeff 20.0 ## no record
+read in sumatra logo
+solve distance function
+solve diffusion equation with coeff 20.0
 ~~~~
 
 <span style="display:block; background-color:#99D6EB;">
-<p style="text-align: center;">Version control not designed to record simulations.</p>
+<p style="text-align: center;">Invent a scheme for recording simulations.</p>
+</span>
+
+~~~~{.console}
+$ ## record event
+$ git co -b sim0
+$ edit script.py
+$ python script.py --coeff 20.0 > stdout
+$ git add stdout script.py data.txt
+$ git ci -m "Add output for coeff 20"
+~~~~
+
+<span style="display:block; background-color:#99D6EB;">
+<p style="text-align: center;">Version control is not designed to record simulation events.</p>
 </span>
 
 ## Sumatra
 
-<p style="text-align: center;">Create Sumatra repository.</p>
+## Sumatra
+
+<span style="display:block; background-color:#99D6EB;">
+<p style="text-align: center;">Create a Sumatra repository.</p>
+</span>
 
 ~~~~{.console}
 $ smt init sumatrademo
 Sumatra project successfully set up
 $ smt configure --executable=python \
-    --main=script.py
-~~~~
-
-<br>
-<p style="text-align: center;">Run simulation using Sumatra.</p>
-
-~~~~{.console}
-$ smt run 2 1 ## python script.py 2 1
-waiting for 3.0(s)
-No data produced.
-Created record store
+> --main=script.py
 ~~~~
 
 ## Sumatra
 
-<p style="text-align: center;">View record.</p>
+<span style="display:block; background-color:#99D6EB;">
+<p style="text-align: center;">Create a Sumatra repository.</p>
+</span>
+
+~~~~{.console}
+$ smt init sumatrademo
+Sumatra project successfully set up
+$ smt configure --executable=python \
+> --main=script.py
+~~~~
+
+<span style="display:block; background-color:#99D6EB;">
+<p style="text-align: center;">Run a simulation using Sumatra.</p>
+</span>
+
+~~~~{.console}
+$ smt run --reason "No diffusion" \
+> default.param coeff=0.0 ## python script.py...
+...
+Data keys are [sumatra_contour_logo.png(a4c84...]
+Created Django record store using SQLite
+~~~~
+
+## Sumatra
+
+## Sumatra
+
+<span style="display:block; background-color:#99D6EB;">
+<p style="text-align: center;">View a record.</p>
+</span>
+
+## Sumatra
+
+<span style="display:block; background-color:#99D6EB;">
+<p style="text-align: center;">View a record.</p>
+</span>
 
 ~~~~{.console}
 $ smt list --long
 ----------------------------------------------
-Label            : 622fbd437c4a
-Timestamp        : 2013-05-08 12:07:15.8991...
-Duration         : 3.02781295776
-Repository       : GitRepository at /users/...
+Label            : a87041629054
+Timestamp        : 2013-06-21 12:01:04.0892...
+Reason           : No diffusion
+Duration         : 0.56453704834
+Repository       : GitRepository at /home/w...
 Main_File        : script.py
-Version          : 250e0a989a19
-Script_Arguments : 2 1
-Executable       : Python (version: 2.6.6) ...
-Launch_Mode      : serial
+Version          : c18ed2276514bb29d233d4a9...
+Parameters       : coeff = 0
+Output_Data      : data.txt(d857eb69dd4f58...
 User             : Daniel Wheeler <daniel.w...
 ~~~~
+p
+## Web Interface
 
-## 
+<!-- "smtweb --allips --no-browser -p 8001" -->
 
-<!-- on ruth do "smtweb --allips --no-browser -p 8001" -->
-<!-- <p style="text-align: center;"><iframe width="100%" height="80%"  allowfullscreen seamless src="http://129.6.153.60:8001/sumatrademo/622fbd437c4a/" frameborder="0" border="0"> </iframe></p> -->
+<p style="text-align: center;"> <http://localhost:8001/scipydemo/> </p>
 
-## Modify Code
 
-<p style="text-align: center;">```import fipy``` to view dependencies.</p>
 
-~~~~{.python .numberLines}
-## script.py
-import time
-import sys
+## Commits Per Month
 
-import fipy
+<p style="text-align: center; border:0; padding:0px;"><img height="30%" border="0" padding="0" src="./commitspermonth.png"></p>
 
-wait = float(sys.argv[1]) + \
-    float(sys.argv[2])
-print 'waiting for ' + str(wait) + '(s)'
-time.sleep(wait)
-~~~~
+## Contributors Per Month
 
-## 
-
-<!-- <p style="text-align: center;"><iframe width="100%" height="80%"  allowfullscreen seamless src="http://129.6.153.60:8001/sumatrademo/6b53762ca24e/" frameborder="0" border="0"> </iframe></p> -->
-
-## Sumatra Web Interface
-
-<!-- <p style="text-align: center;"> <http://129.6.153.60:8001/sumatrademo/> </p> -->
-
-## 
-
-<p style="text-align: center;"><iframe width="100%" height="80%" allowfullscreen seamless src="https://www.ohloh.net/p/Sumatra" frameborder="0" border="0"> </iframe></p>
+<p style="text-align: center; border:0; padding:0px;"><img height="40%" border="0" padding="0" src="./contributorspermonth.png"></p>
 
 ## Andrew Davison
 
-<p style="text-align: center;">Eats his own dog food.</p>
- 
-![](id_photo5.jpg)
+## Andrew Davison
 
-<!-- ## Andrew Davison -->
+<span style="display:block; background-color:#99D6EB;"><p style="text-align: center; "> </p></span>
 
-<!-- He eats his own dog food -->
-<!-- Based at CNRS <br> -->
-<!-- Models neuronal networks <br> -->
-<!-- Promotes reproducible research in neuroscience <br> -->
-<!-- PyNN, NineML and NeuroML, Sumatra, Neo and Helmholtz project. -->
+- Based at CNRS
 
-## Why do I like Sumatra?
+- Leads a neuroinformatics group
 
-<p style="text-align: center; "> <font color="red"> Doesn't require a
-wholesale change to the way I work.  </font> </p>
+- Models neoronal networks
 
-<br> <p style="text-align: center; "> This </p>
+- Promotes reproducible research in neuroscience
 
-~~~~{.console}
-$ python script.py 3 2
-~~~~
+- PyNN, NineML and NeuroML, Sumatra, Neo and Helmholtz project
 
-<p style="text-align: center; "> versus this </p>
-
-~~~~{.console}
-$ smt run 3 2
-~~~~
+- Eats his own dog food
 
 ## Issues
 
@@ -317,33 +336,22 @@ $ smt run 3 2
 
  - Concurrency (fixed with Postgres instead of SQLite) <br><br>
  - Live inspection (kill, suspend and restart) <br><br>
- - Parallel, distributed, SGE 
+ - Parallel, distributed, SGE <br><br>
+ - Housekeeping (better documentation, DRY principle, more tests) <br><br>
 
-## Active Research Example
+<!-- ## Active Research Example -->
 
-<!-- <p style="text-align: center;"> <http://129.6.153.60:8000/extremefill/> </p> -->
-<!-- <p style="text-align: center;"><iframe width="100%" height="80%"  allowfullscreen seamless src="http://129.6.153.60:8000/extremefill/" frameborder="0" border="0"> </iframe></p> -->
+<!-- <p style="text-align: center;"><http://localhost:8002/extremefill/></p> -->
+<!-- <\!-- <p style="text-align: center;"><iframe width="100%" height="80%"  allowfullscreen seamless src="http://129.6.153.60:8000/extremefill/" frameborder="0" border="0"> </iframe></p> -\\-> -\-> -->
 
-## IPython Notebook and Sumatra
+## Postprocessing
 
-<!-- <p style="text-align: center;"> <http://129.6.153.60:7000> </p> -->
-<!-- <p style="text-align: center;"><iframe width="100%" height="80%"  allowfullscreen seamless src="http://129.6.153.60:7000" frameborder="0" border="0"> </iframe></p> -->
+<!-- <p style="text-align: center;"> <http://localhost:7000> </p> -->
+<p style="text-align: center;"><iframe width="100%" height="80%"  allowfullscreen seamless src="http://localhost:7000" frameborder="0" border="0"> </iframe></p> -->
 
-## Why is IPython Notebook a Big Deal?
+## Blog
 
-<br>
-<p style="text-align: center; "> <font color="red"> Embed live code with documentation on the web!!! </font> </p>
-
-<br> <br>
-<p style="text-align: center; "> Dynamic, not static </p>
-
-<br> <br>
-<p style="text-align: center; "> but sometimes we need static </p>
-
-## Blogging
-
-<p style="text-align: center;"> <http://wd15.github.io/2013/05/07/extremefill2d/> </p>
-<!-- <p style="text-align: center;"><iframe width="100%" height="80%" allowfullscreen seamless src="http://wd15.github.io/2013/05/07/extremefill2d/" frameborder="0" border="0"> </iframe></p> -->
+<p style="text-align: center;"><iframe width="100%" height="80%" allowfullscreen seamless src="http://localhost:4000/2013/05/07/extremefill2d/" frameborder="0" border="0"> </iframe></p>
 
 ## API
 
@@ -366,11 +374,22 @@ project.save()
 
 ## Future Work
 
- - Postgres patch and database configuration. <br><br>
- - Live inspection (kill, suspend and restart). <br><br>
- - Web interface improvements (URL filtering instead of AJAX) <br><br>
- - Testing (close integration with Buildbot). <br><br>
- - Distributed.
+ - Live inspection (kill, suspend and restart) <br><br>
+ - Testing (close integration with Buildbot) <br><br>
+ - Distributed <br><br>
 
-## Slides availabe from Github 
+## Conclusion
+
+## Conclusion
+
+<span style="display:block; background-color:#99D6EB;"><p style="text-align: center; "> </p></span>
+
+ - Sumatra is a lightweight system for recording simulation events.
+ 
+ - No significant changes required to a typical command line workflow.
+
+## Slides
+
+ - http://github.com/wd15/scipy2013
+  
  
