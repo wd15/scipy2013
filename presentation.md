@@ -295,14 +295,12 @@ Parameters       : coeff = 0
 Output_Data      : data.txt(d857eb69dd4f58...
 User             : Daniel Wheeler <daniel.w...
 ~~~~
-p
+
 ## Web Interface
 
 <!-- "smtweb --allips --no-browser -p 8001" -->
 
 <p style="text-align: center;"> <http://localhost:8001/scipydemo/> </p>
-
-
 
 ## Commits Per Month
 
@@ -322,7 +320,7 @@ p
 
 - Leads a neuroinformatics group
 
-- Models neoronal networks
+- Models neuronal networks
 
 - Promotes reproducible research in neuroscience
 
@@ -339,12 +337,12 @@ p
  - Parallel, distributed, SGE <br><br>
  - Housekeeping (better documentation, DRY principle, more tests) <br><br>
 
-<!-- ## Active Research Example -->
+## Active Research Example 
 
-<!-- <p style="text-align: center;"><http://localhost:8002/extremefill/></p> -->
+<p style="text-align: center;"><http://localhost:8002/extremefill/></p>
 <!-- <\!-- <p style="text-align: center;"><iframe width="100%" height="80%"  allowfullscreen seamless src="http://129.6.153.60:8000/extremefill/" frameborder="0" border="0"> </iframe></p> -\\-> -\-> -->
 
-## Postprocessing
+## IPython Notebook 
 
 <!-- <p style="text-align: center;"> <http://localhost:7000> </p> -->
 <p style="text-align: center;"><iframe width="100%" height="80%"  allowfullscreen seamless src="http://localhost:7000" frameborder="0" border="0"> </iframe></p> -->
@@ -388,8 +386,11 @@ project.save()
  
  - No significant changes required to a typical command line workflow.
 
+ - Search: "python sumatra"
+
 ## Slides
 
  - http://github.com/wd15/scipy2013
   
+
  
