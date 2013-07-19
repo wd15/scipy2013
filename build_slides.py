@@ -65,7 +65,7 @@ html_string = backgroundimage('sumatra', 'image2-50.png', html_string)
 html_string = backgroundimage('version-control', 'stack-of-files60.png', html_string)
 html_string = backgroundimage('andrew-davison', 'id_photo5-120.png', html_string)
 html_string = backgroundimage('conclusion', 'image2-50.png', html_string)
-#html_string = backgroundimage('context', 'manufact_goals40.png', html_string)
+html_string = backgroundimage('context', 'manufact_goals40.png', html_string)
 
 html_string = html_string.replace('transition: left', 'transition: right', 10)
 
